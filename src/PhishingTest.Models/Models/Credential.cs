@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PhisingTest.Models
+namespace PhishingTest.Models.Models
 {
-    public class CredentialModel
+    public class Credential
     {
         [Required]
         public string Email { get; set; }

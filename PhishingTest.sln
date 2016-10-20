@@ -10,9 +10,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PhishingTest", "src\PhisingTest\PhishingTest.xproj", "{F9B3B03C-CBF9-4B9D-B486-A1D918F10E39}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PhishingTest", "src\PhishingTest\PhishingTest.xproj", "{F9B3B03C-CBF9-4B9D-B486-A1D918F10E39}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PhishingTest.BusinessLayer", "src\PhisingTest.BusinessLayer\PhishingTest.BusinessLayer.xproj", "{2984D763-EC43-452C-97C7-9D866F608BC6}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PhishingTest.BusinessLayer", "src\PhishingTest.BusinessLayer\PhishingTest.BusinessLayer.xproj", "{2984D763-EC43-452C-97C7-9D866F608BC6}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "PhishingTest.Models", "src\PhishingTest.Models\PhishingTest.Models.xproj", "{4B2E08D4-4BF4-4BF9-8378-E36A7AF2D16D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,6 +30,10 @@ Global
 		{2984D763-EC43-452C-97C7-9D866F608BC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2984D763-EC43-452C-97C7-9D866F608BC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2984D763-EC43-452C-97C7-9D866F608BC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B2E08D4-4BF4-4BF9-8378-E36A7AF2D16D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B2E08D4-4BF4-4BF9-8378-E36A7AF2D16D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B2E08D4-4BF4-4BF9-8378-E36A7AF2D16D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B2E08D4-4BF4-4BF9-8378-E36A7AF2D16D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,5 +41,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{F9B3B03C-CBF9-4B9D-B486-A1D918F10E39} = {03B84B61-1315-4E4C-B943-043F4683F555}
 		{2984D763-EC43-452C-97C7-9D866F608BC6} = {03B84B61-1315-4E4C-B943-043F4683F555}
+		{4B2E08D4-4BF4-4BF9-8378-E36A7AF2D16D} = {03B84B61-1315-4E4C-B943-043F4683F555}
 	EndGlobalSection
 EndGlobal
