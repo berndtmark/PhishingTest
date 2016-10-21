@@ -22,7 +22,9 @@
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
     "PhishingTest.BusinessLayer": "1.0.0-*",
-    "PhishingTest.Models": "1.0.0-*" },
+    "PhishingTest.Models": "1.0.0-*",
+    "PhishingTest.DataAccessLayer": "1.0.0-*",
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.1" },
 
   "tools": {
     "BundlerMinifier.Core": "2.0.238",

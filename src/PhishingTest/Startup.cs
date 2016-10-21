@@ -4,11 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using PhishingTest.DataAccessLayer.DataContext;
 using PhishingTest.Models.Models;
 using PhisingTest.BusinessLayer.Services;
+using PhisingTest.Extentions;
 
 namespace PhisingTest
 {
@@ -32,16 +35,19 @@ namespace PhisingTest
             // Add framework services.
             services.AddMvc();
 
-            services.AddTransient<IEmailService, EmailService>();
+            services.ConfigureIoC();
 
             // Add functionality to inject IOptions<T>
             services.AddOptions();
-
+            
             // Add our Config object so it can be injected
             services.Configure<EmailSetting>(Configuration.GetSection("EmailSetting"));
 
             // *If* you need access to generic IConfiguration this is **required**
             services.AddSingleton<IConfiguration>(Configuration);
+
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=PhishingTest;Trusted_Connection=True;";
+            services.AddDbContext<PSDataContext>(options => options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
