@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using PhishingTest.DataAccessLayer.DataContext;
 using PhishingTest.Models.Models;
-using PhisingTest.BusinessLayer.Services;
 using PhisingTest.Extentions;
+using PhishingTest.DataAccessLayer.DataContext;
+using PhishingTest.DataAccessLayer.Data;
 
 namespace PhisingTest
 {
@@ -46,12 +46,12 @@ namespace PhisingTest
             // *If* you need access to generic IConfiguration this is **required**
             services.AddSingleton<IConfiguration>(Configuration);
 
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=PhishingTest;Trusted_Connection=True;";
-            services.AddDbContext<PSDataContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<PSDataContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, PSDataContext context)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
@@ -74,6 +74,8 @@ namespace PhisingTest
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            DbInitializer.Initialize(context);
         }
     }
 }
