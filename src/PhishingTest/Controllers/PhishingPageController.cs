@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using PhishingTest.DataAccessLayer.Repository.Interfaces;
 using PhishingTest.Models.Models;
 using PhisingTest.BusinessLayer.Services.Interfaces;
 
@@ -13,10 +14,12 @@ namespace PhisingTest.Controllers
     public class PhishingPageController : Controller
     {
         private readonly IEmailService _EmailService;
+        private readonly ICredentialRepository _CredentialRepository;
 
-        public PhishingPageController(IEmailService emailService)
+        public PhishingPageController(IEmailService emailService, ICredentialRepository credentialRepository)
         {
             _EmailService = emailService;
+            _CredentialRepository = credentialRepository;
         }
 
         [Route("amazonsignin", Name = "AmazonSignin")]
@@ -33,7 +36,9 @@ namespace PhisingTest.Controllers
                 return RedirectToAction("Amazon");
             }
 
-            SendCredentials(creds);
+            //SendCredentials(creds);
+            _CredentialRepository.SaveCredential(creds);
+
             return View("FailedTest");
         }
 
