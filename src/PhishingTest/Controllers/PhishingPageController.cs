@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PhishingTest.Models.Models;
-using PhisingTest.BusinessLayer.Services;
+using PhisingTest.BusinessLayer.Services.Interfaces;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 

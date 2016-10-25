@@ -7,6 +7,11 @@ namespace PhishingTest.DataAccessLayer.Entities
 {
     public abstract class EntityBase
     {
+        public EntityBase()
+        {
+            CreateDate = DateTime.UtcNow;
+        }
+
         public DateTime CreateDate { get; set; }
     }
 }

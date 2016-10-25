@@ -8,6 +8,7 @@ using MimeKit;
 using MailKit.Security;
 using PhishingTest.Models.Models;
 using Microsoft.Extensions.Options;
+using PhisingTest.BusinessLayer.Services.Interfaces;
 
 namespace PhisingTest.BusinessLayer.Services
 {
