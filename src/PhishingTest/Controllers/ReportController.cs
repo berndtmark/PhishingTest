@@ -23,7 +23,7 @@ namespace PhisingTest.Controllers
         {
             var creds = _CredentialRepository.GetCredentials();
 
-            return View();
+            return View(creds);
         }
     }
 }

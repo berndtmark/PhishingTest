@@ -1,5 +1,20 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using PhishingTest.Models.Models
+
+@model IList<Credential>
+
+<div>
+    @foreach (var cred in Model)
+    {
+        <div class="well">
+            <span>
+                <label asp-for="@cred.Email"></label>
+                <span>: @cred.Email</span>
+            </span>
+            <br />
+            <span>
+                <label asp-for="@cred.DisplayPassword"></label>
+                <span>: @cred.DisplayPassword</span>
+            </span>
+        </div>
+    }
+</div>

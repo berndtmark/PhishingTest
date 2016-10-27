@@ -36,18 +36,7 @@ namespace PhisingTest
             services.AddMvc();
 
             services.ConfigureIoC();
-
-            // Add functionality to inject IOptions<T>
-            services.AddOptions();
-            
-            // Add our Config object so it can be injected
-            services.Configure<EmailSetting>(Configuration.GetSection("EmailSetting"));
-
-            // *If* you need access to generic IConfiguration this is **required**
-            services.AddSingleton<IConfiguration>(Configuration);
-
-            services.AddDbContext<PSDataContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.ConfigureConfiguration(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
